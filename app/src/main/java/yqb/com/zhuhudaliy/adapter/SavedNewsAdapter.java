@@ -79,7 +79,7 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.View
                     String id = newses.get(position).getId();//获取正文
                     //页面跳转
                     Intent intent = new Intent(mContext, NewsConetentActivity.class);
-                    intent.putExtra("url",id);
+                    intent.putExtra("url", id);
                     mContext.startActivity(intent);
 
                 }
@@ -102,7 +102,7 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.View
                                     newsDao.deleteNews(newses.get(position).getId());
                                     newses.remove(position);
                                     SavedNewsAdapter.this.notifyItemRemoved(position);
-                                    SavedNewsAdapter.this.notifyItemRangeChanged(0,newses.size()-position);
+                                    SavedNewsAdapter.this.notifyItemRangeChanged(0, newses.size() - position);
                                 }
                             });
                     normalDialog.setNegativeButton("取消",

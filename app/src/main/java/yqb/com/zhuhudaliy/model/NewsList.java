@@ -25,7 +25,7 @@ public class NewsList {
 
         try {
             JSONArray jsonArray = jsonObject.getJSONArray("stories");
-            for (int i = 1; i < jsonArray.length(); i++) {
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject newsJson = jsonArray.getJSONObject(i);
                 String image = newsJson.optString("images");
                 String id = newsJson.getString("id");
@@ -42,23 +42,23 @@ public class NewsList {
         return news;
     }
 
-    public static List<NewsModel> getListFromSqlite(String sql,Context mContext){
+    public static List<NewsModel> getListFromSqlite(String sql, Context mContext) {
         List<NewsModel> news = new ArrayList<>();
         NewsDao newsDao = new NewsDao(mContext);
         news = newsDao.getSavedNewsList(sql);
         return news;
     }
 
-    public static List<NewsModel> getListFromThemeUrl(String url){
+    public static List<NewsModel> getListFromThemeUrl(String url) {
         List<NewsModel> news = new ArrayList<>();
         Network network = new Network(url);
         JSONObject jsonObject = network.doNetWork();
 
         try {
             JSONArray jsonArray = jsonObject.getJSONArray("stories");
-            for (int i = 0; i < jsonArray.length(); i++) {
+            for (int i = 1; i < jsonArray.length(); i++) {
                 JSONObject newsJson = jsonArray.getJSONObject(i);
-                String image = newsJson.getString("images");
+                String image = newsJson.optString("images");
                 String id = newsJson.getString("id");
                 String title = newsJson.getString("title");
                 NewsModel model = new NewsModel();

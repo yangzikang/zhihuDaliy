@@ -14,11 +14,11 @@ public class Network {
 
     private String url = null;
 
-    public Network(String url){
+    public Network(String url) {
         this.url = url;
     }
 
-    public JSONObject doNetWork(){
+    public JSONObject doNetWork() {
         JSONObject jsonObject = null;
         OkHttpClient mOkHttpClient = new OkHttpClient();
         final Request request = new Request.Builder()

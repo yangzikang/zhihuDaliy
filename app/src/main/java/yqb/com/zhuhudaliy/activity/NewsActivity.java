@@ -67,32 +67,32 @@ public class NewsActivity extends BaseActivity implements INewsView {
                     BeforeOneDay.nowDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
                     toolbar.setTitle("知道日报");
                 } else if (id == R.id.nav_movie) {
-                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
-                    intent.putExtra("theme","3");
+                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
+                    intent.putExtra("theme", "3");
                     startActivity(intent);
                 } else if (id == R.id.nav_music) {
-                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
-                    intent.putExtra("theme","7");
+                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
+                    intent.putExtra("theme", "7");
                     startActivity(intent);
                 } else if (id == R.id.nav_sport) {
-                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
-                    intent.putExtra("theme","8");
+                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
+                    intent.putExtra("theme", "8");
                     startActivity(intent);
                 } else if (id == R.id.nav_design) {
-                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
-                    intent.putExtra("theme","4");
+                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
+                    intent.putExtra("theme", "4");
                     startActivity(intent);
                 } else if (id == R.id.nav_animation) {
-                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
-                    intent.putExtra("theme","9");
+                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
+                    intent.putExtra("theme", "9");
                     startActivity(intent);
-                }else if (id == R.id.nav_finance) {
-                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
-                    intent.putExtra("theme","6");
+                } else if (id == R.id.nav_finance) {
+                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
+                    intent.putExtra("theme", "6");
                     startActivity(intent);
-                }else if (id == R.id.nav_game) {
-                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
-                    intent.putExtra("theme","2");
+                } else if (id == R.id.nav_game) {
+                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
+                    intent.putExtra("theme", "2");
                     startActivity(intent);
                 }
 
@@ -121,17 +121,18 @@ public class NewsActivity extends BaseActivity implements INewsView {
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
-        try{
+        try {
             EventBus.getDefault().register(presenter);
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
     }
+
     @Override
-    public void onPause(){
+    public void onPause() {
         super.onPause();
         EventBus.getDefault().unregister(presenter);
     }
@@ -158,7 +159,8 @@ public class NewsActivity extends BaseActivity implements INewsView {
 
                         @Override
                         public void run() {
-                            if (isRefreshing) {} else {
+                            if (isRefreshing) {
+                            } else {
                                 isRefreshing = true;
                                 BeforeOneDay.nowDate = BeforeOneDay.getSpecifiedDayBefore(BeforeOneDay.nowDate);
                                 String date = BeforeOneDay.nowDate;

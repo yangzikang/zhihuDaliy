@@ -47,7 +47,7 @@ public class NewsPresenter {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                List<NewsModel> news = NewsList.getListFromJson(url);
+                List<NewsModel> news = NewsList.getListFromThemeUrl(url);
                 NewsEvent event = new NewsEvent();
                 event.setNewsModelList(news);
                 EventBus.getDefault().post(event);

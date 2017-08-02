@@ -54,11 +54,11 @@ public class NewsDao {
         return mList;
     }
 
-    public boolean deleteNews(String id){
+    public boolean deleteNews(String id) {
         SQLiteDatabase database = null;
         try {
             database = helper.getWritableDatabase();
-            database.execSQL("delete from news where id = "+id+"");
+            database.execSQL("delete from news where id = " + id + "");
             if (database != null) {
                 database.close();
             }

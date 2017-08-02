@@ -32,14 +32,14 @@ public class ChooseDayActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 int year = chooseDay.getYear();
-                int month = chooseDay.getMonth()+1;
+                int month = chooseDay.getMonth() + 1;
                 int day = chooseDay.getDayOfMonth();
-                String monthString = month < 10 ? "0" + month: "" + month;
-                String dayString = day < 10 ? "0"+day:""+day;
-                String date = year + monthString +dayString;
-                Log.d("choose",date);
+                String monthString = month < 10 ? "0" + month : "" + month;
+                String dayString = day < 10 ? "0" + day : "" + day;
+                String date = year + monthString + dayString;
+                Log.d("choose", date);
                 Intent intent = new Intent();
-                intent.putExtra("date",date);
+                intent.putExtra("date", date);
                 setResult(RESULT_OK, intent);
                 finish();//此处一定要调用finish()方法
 
