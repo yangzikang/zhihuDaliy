@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="none"
-        android:id="@+id/group_manage">
+    <group
+        android:id="@+id/group_manage"
+        android:checkableBehavior="none">
         <item
             android:id="@+id/nav_toToday"
-            android:title="回到今天"
-            android:icon="@mipmap/ic_launcher"/>
+            android:icon="@mipmap/ic_launcher"
+            android:title="回到今天" />
     </group>
     <group
-        android:checkableBehavior="none"
-        android:id="@+id/group_settings">
-        <item android:id="@+id/nav_theme"
-            android:title="主题风格"/>
-        <item android:id="@+id/nav_night"
-            android:title="夜间模式"/>
+        android:id="@+id/group_settings"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_movie"
+            android:title="电影专题" />
+        <item
+            android:id="@+id/nav_music"
+            android:title="音乐专题" />
+        <item
+            android:id="@+id/nav_sport"
+            android:title="运动专题" />
+        <item
+            android:id="@+id/nav_design"
+            android:title="设计专题" />
+        <item
+            android:id="@+id/nav_animation"
+            android:title="动漫专题" />
+        <item
+            android:id="@+id/nav_finance"
+            android:title="财经专题" />
+        <item
+            android:id="@+id/nav_game"
+            android:title="游戏专题" />
 
     </group>
 </menu>

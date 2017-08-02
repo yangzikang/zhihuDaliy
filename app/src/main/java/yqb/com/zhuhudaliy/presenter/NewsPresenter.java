@@ -1,6 +1,7 @@
 package yqb.com.zhuhudaliy.presenter;
 
 import android.content.Context;
+import android.os.Handler;
 import android.util.Log;
 
 import org.greenrobot.eventbus.EventBus;
@@ -22,7 +23,6 @@ import yqb.com.zhuhudaliy.view.INewsView;
 
 public class NewsPresenter {
     private INewsView mNewsView;
-
     public NewsPresenter(INewsView view) {
         mNewsView = view;
     }
@@ -43,6 +43,18 @@ public class NewsPresenter {
         loadNews(Api.getInstance().getDaliyUrl());
     }
 
+    public void loadNewsFromTheme(final String url){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<NewsModel> news = NewsList.getListFromJson(url);
+                NewsEvent event = new NewsEvent();
+                event.setNewsModelList(news);
+                EventBus.getDefault().post(event);
+            }
+        }).start();
+    }
+
     public void loadNewsFromSqlite(Context mContext) {
         List<NewsModel> news = NewsList.getListFromSqlite("select * from news", mContext);
         mNewsView.setList(news);
@@ -50,6 +62,8 @@ public class NewsPresenter {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(NewsEvent event) {
+
         mNewsView.setList(event.getNewsModelList());
     }
+
 }

@@ -19,13 +19,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.NewsActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".activity.NewsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activity.ChooseDayActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.NewsConetentActivity" />
-        <activity android:name=".activity.SavedNewsActivity"></activity>
+        <activity android:name=".activity.SavedNewsActivity" />
+        <activity android:name=".activity.ThemeActivity"></activity>
     </application>
 
 </manifest>

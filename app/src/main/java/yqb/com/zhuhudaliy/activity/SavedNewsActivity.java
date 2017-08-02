@@ -30,7 +30,6 @@ public class SavedNewsActivity extends BaseActivity implements INewsView {
 
     @Override
     protected void initBussiness() {
-        EventBus.getDefault().register(presenter);
         presenter.loadNewsFromSqlite(this);
     }
 

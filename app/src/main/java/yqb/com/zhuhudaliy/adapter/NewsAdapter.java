@@ -36,7 +36,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     @Override
     public NewsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_style2, parent, false);
         NewsAdapter.ViewHolder viewHolder = new NewsAdapter.ViewHolder(view);
         return viewHolder;
     }
@@ -49,11 +49,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
 
     private String handleImageUrl(String imageUrl) {
-        imageUrl = imageUrl.substring(2);
-        String[] realImageUrl = imageUrl.split("\"");
-        imageUrl = realImageUrl[0];
-        imageUrl = imageUrl.replace("\\", "");
-        return imageUrl;
+        if(imageUrl.length()>2) {
+            imageUrl = imageUrl.substring(2);
+            String[] realImageUrl = imageUrl.split("\"");
+            imageUrl = realImageUrl[0];
+            imageUrl = imageUrl.replace("\\", "");
+            return imageUrl;
+        }
+        else{
+            return imageUrl;
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package yqb.com.zhuhudaliy.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -60,21 +61,39 @@ public class NewsActivity extends BaseActivity implements INewsView {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-
+                Intent intent;
                 if (id == R.id.nav_toToday) {
                     presenter.loadNews();
                     BeforeOneDay.nowDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
                     toolbar.setTitle("知道日报");
-                } else if (id == R.id.nav_toToday) {
-
-                } else if (id == R.id.nav_toToday) {
-
-                } else if (id == R.id.nav_toToday) {
-
-                } else if (id == R.id.nav_toToday) {
-
-                } else if (id == R.id.nav_toToday) {
-
+                } else if (id == R.id.nav_movie) {
+                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
+                    intent.putExtra("theme","3");
+                    startActivity(intent);
+                } else if (id == R.id.nav_music) {
+                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
+                    intent.putExtra("theme","7");
+                    startActivity(intent);
+                } else if (id == R.id.nav_sport) {
+                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
+                    intent.putExtra("theme","8");
+                    startActivity(intent);
+                } else if (id == R.id.nav_design) {
+                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
+                    intent.putExtra("theme","4");
+                    startActivity(intent);
+                } else if (id == R.id.nav_animation) {
+                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
+                    intent.putExtra("theme","9");
+                    startActivity(intent);
+                }else if (id == R.id.nav_finance) {
+                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
+                    intent.putExtra("theme","6");
+                    startActivity(intent);
+                }else if (id == R.id.nav_game) {
+                    intent = new Intent(NewsActivity.this,ThemeActivity.class);
+                    intent.putExtra("theme","2");
+                    startActivity(intent);
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -102,6 +121,22 @@ public class NewsActivity extends BaseActivity implements INewsView {
     }
 
     @Override
+    public void onStart(){
+        super.onStart();
+        try{
+            EventBus.getDefault().register(presenter);
+        }catch (Exception e){
+
+        }
+
+    }
+    @Override
+    public void onPause(){
+        super.onPause();
+        EventBus.getDefault().unregister(presenter);
+    }
+
+    @Override
     public void setList(List news) {
         final LinearLayoutManager manager = new LinearLayoutManager(this);
         final NewsAdapter adapter = new NewsAdapter(news, this);
@@ -115,25 +150,30 @@ public class NewsActivity extends BaseActivity implements INewsView {
                 super.onScrollStateChanged(recyclerView, newState);
 
                 if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 == adapter.getItemCount()) {
+                    final ProgressDialog dialog = new ProgressDialog(NewsActivity.this);
+                    dialog.setMessage("加载中...");
+                    dialog.show();
                     new Handler().postDelayed(new Runnable() {
                         boolean isRefreshing = false;
 
                         @Override
                         public void run() {
-                            if (isRefreshing) {
-
-                            } else {
+                            if (isRefreshing) {} else {
                                 isRefreshing = true;
                                 BeforeOneDay.nowDate = BeforeOneDay.getSpecifiedDayBefore(BeforeOneDay.nowDate);
                                 String date = BeforeOneDay.nowDate;
                                 presenter.loadNews(Api.getInstance().getBeforeUrl() + date);
-                                isRefreshing = false;
                                 toolbar.setTitle(date);
+                                dialog.cancel();
+                                isRefreshing = false;
                             }
 
                         }
                     }, 1000);
+
                 }
+
+
             }
 
             @Override

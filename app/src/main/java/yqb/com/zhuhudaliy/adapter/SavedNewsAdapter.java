@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import yqb.com.zhuhudaliy.R;
@@ -37,7 +36,7 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.View
 
     @Override
     public SavedNewsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_saved_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_style1, parent, false);
         SavedNewsAdapter.ViewHolder viewHolder = new SavedNewsAdapter.ViewHolder(view);
         return viewHolder;
     }
