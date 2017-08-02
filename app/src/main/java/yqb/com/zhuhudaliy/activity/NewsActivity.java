@@ -2,9 +2,15 @@ package yqb.com.zhuhudaliy.activity;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,6 +20,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 
 import yqb.com.zhuhudaliy.R;
 import yqb.com.zhuhudaliy.adapter.NewsAdapter;
@@ -31,12 +38,50 @@ public class NewsActivity extends BaseActivity implements INewsView {
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
     NewsPresenter presenter = new NewsPresenter(this);
+    Toolbar toolbar;
 
     @Override
     protected void initView() {
         setContentView(R.layout.activity_news);
         recyclerView = (RecyclerView) findViewById(R.id.news_list);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+
+                if (id == R.id.nav_toToday) {
+                    presenter.loadNews();
+                    BeforeOneDay.nowDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
+                    toolbar.setTitle("知道日报");
+                } else if (id == R.id.nav_toToday) {
+
+                } else if (id == R.id.nav_toToday) {
+
+                } else if (id == R.id.nav_toToday) {
+
+                } else if (id == R.id.nav_toToday) {
+
+                } else if (id == R.id.nav_toToday) {
+
+                }
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -49,6 +94,7 @@ public class NewsActivity extends BaseActivity implements INewsView {
                         presenter.loadNews();
                         swipeRefreshLayout.setRefreshing(false);
                         BeforeOneDay.nowDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
+                        toolbar.setTitle("知道日报");
                     }
                 }
         );
@@ -82,6 +128,7 @@ public class NewsActivity extends BaseActivity implements INewsView {
                                 String date = BeforeOneDay.nowDate;
                                 presenter.loadNews(Api.getInstance().getBeforeUrl() + date);
                                 isRefreshing = false;
+                                toolbar.setTitle(date);
                             }
 
                         }
@@ -97,6 +144,16 @@ public class NewsActivity extends BaseActivity implements INewsView {
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override

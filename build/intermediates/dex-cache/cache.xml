@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="395e9ab7a83cbd0061c0d023c6f44c4c597647a0">
+        sha1="a9ab6385353598b18d3e0e2c2afcb930e8c92769">
         <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_5dbd3da998d378df4743c3d6dd263d088a0372eb/classes.dex" />
     </item>
     <item
@@ -124,7 +124,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="b73afaa63dbad6ddb2e2e17425c3e4cb5acd4d10">
+        sha1="c3ec86d734625e4c8683e0756093ddb3370ec834">
         <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_56ff4df286ba2a0e19ec6f003a2b0cb4fca0fa3a/classes.dex" />
     </item>
     <item

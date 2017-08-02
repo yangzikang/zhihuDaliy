@@ -9,6 +9,8 @@ public class Api {
     private String daliyUrl = "http://news-at.zhihu.com/api/4/news/latest";
     private String beforeUrl = "http://news-at.zhihu.com/api/4/news/before/";//+date format(20130520-今)
     private String contentUrl = "http://daily.zhihu.com/story/";//+id format(9543161)
+    //
+    private String themeUrl = "http://news-at.zhihu.com/api/4/theme/";//+themeid format(11)
 
     private Api() {
         //维持单例模式，封闭构造
