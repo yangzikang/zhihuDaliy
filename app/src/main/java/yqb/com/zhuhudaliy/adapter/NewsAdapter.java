@@ -30,17 +30,19 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<NewsModel> newses;
     private Context mContext;
+    private int buttomCount;
     private final static int BUTTOMVIEW = 0;
     private final static int CONTENTVIEW = 1;
 
-    public NewsAdapter(List newses, Context context) {
+    public NewsAdapter(List newses, Context context, int buttomCount) {
         this.newses = newses;
         this.mContext = context;
+        this.buttomCount = buttomCount;
     }
 
     @Override
     public int getItemViewType(int position) {
-        int dataItemCount = getItemCount() - 1;
+        int dataItemCount = getItemCount() - buttomCount;
         if (position >= (dataItemCount)) {
             return BUTTOMVIEW;
         } else {
@@ -74,7 +76,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return newses.size() + 1;//一个ButtomView
+        return newses.size() + buttomCount;//一个ButtomView
     }
 
     class NewsViewHolder extends RecyclerView.ViewHolder {
@@ -114,7 +116,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                     int position = getPosition();
                                     NewsDao newsDao = new NewsDao(mContext);
                                     newsDao.addNews(newses.get(position));
-                                    Toast.makeText(mContext, "添加喜欢", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(mContext, "添加成功", Toast.LENGTH_LONG).show();
                                 }
                             });
                     normalDialog.setNegativeButton("取消",

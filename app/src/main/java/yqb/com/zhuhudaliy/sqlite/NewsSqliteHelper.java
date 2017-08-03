@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class NewsSqliteHelper extends SQLiteOpenHelper {
-    private static String DB_NAME = "gac.db";
+    private static String DB_NAME = "news.db";
     private static int VERSION = 1;
     private static final String NEWS_TABLE_CREATE = "create table if not exists "
             + "news" + " ("
