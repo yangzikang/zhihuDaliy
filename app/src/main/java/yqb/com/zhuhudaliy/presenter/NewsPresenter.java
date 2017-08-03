@@ -23,6 +23,7 @@ import yqb.com.zhuhudaliy.view.INewsView;
 
 public class NewsPresenter {
     private INewsView mNewsView;
+
     public NewsPresenter(INewsView view) {
         mNewsView = view;
     }
@@ -43,7 +44,7 @@ public class NewsPresenter {
         loadNews(Api.getInstance().getDaliyUrl());
     }
 
-    public void loadNewsFromTheme(final String url){
+    public void loadNewsFromTheme(final String url) {
         new Thread(new Runnable() {
             @Override
             public void run() {

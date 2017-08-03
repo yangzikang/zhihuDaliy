@@ -27,25 +27,28 @@ public class ChooseDayActivity extends BaseActivity {
     }
 
     @Override
-    protected void initBussiness() {
+    protected void initListener() {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int year = chooseDay.getYear();
-                int month = chooseDay.getMonth() + 1;
-                int day = chooseDay.getDayOfMonth();
-                String monthString = month < 10 ? "0" + month : "" + month;
-                String dayString = day < 10 ? "0" + day : "" + day;
-                String date = year + monthString + dayString;
-                Log.d("choose", date);
                 Intent intent = new Intent();
-                intent.putExtra("date", date);
+                intent.putExtra("date", getDate());
                 setResult(RESULT_OK, intent);
                 finish();//此处一定要调用finish()方法
 
             }
         });
 
+    }
+
+    private String getDate() {
+        int year = chooseDay.getYear();
+        int month = chooseDay.getMonth() + 1;
+        int day = chooseDay.getDayOfMonth();
+        String monthString = month < 10 ? "0" + month : "" + month;
+        String dayString = day < 10 ? "0" + day : "" + day;
+        String date = year + monthString + dayString;
+        return date;
     }
 
 }

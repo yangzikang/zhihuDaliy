@@ -9,20 +9,25 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public class BaseActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
         initBussiness();
-
+        initListener();
     }
 
     protected void initView() {
-
+        //@override
     }
 
     protected void initBussiness() {
+        //@override
+    }
 
+    protected void initListener() {
+        //@override
     }
 
 }

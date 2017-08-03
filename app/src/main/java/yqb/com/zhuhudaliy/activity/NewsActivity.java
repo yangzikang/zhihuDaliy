@@ -12,16 +12,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
 
 import yqb.com.zhuhudaliy.R;
 import yqb.com.zhuhudaliy.adapter.NewsAdapter;
@@ -38,74 +37,28 @@ public class NewsActivity extends BaseActivity implements INewsView {
 
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
-    NewsPresenter presenter = new NewsPresenter(this);
-    Toolbar toolbar;
+    private NewsPresenter presenter = new NewsPresenter(this);
+    private Toolbar toolbar;
+    private DrawerLayout drawer;
 
     @Override
     protected void initView() {
         setContentView(R.layout.activity_news);
         recyclerView = (RecyclerView) findViewById(R.id.news_list);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                Intent intent;
-                if (id == R.id.nav_toToday) {
-                    presenter.loadNews();
-                    BeforeOneDay.nowDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
-                    toolbar.setTitle("知道日报");
-                } else if (id == R.id.nav_movie) {
-                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
-                    intent.putExtra("theme", "3");
-                    startActivity(intent);
-                } else if (id == R.id.nav_music) {
-                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
-                    intent.putExtra("theme", "7");
-                    startActivity(intent);
-                } else if (id == R.id.nav_sport) {
-                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
-                    intent.putExtra("theme", "8");
-                    startActivity(intent);
-                } else if (id == R.id.nav_design) {
-                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
-                    intent.putExtra("theme", "4");
-                    startActivity(intent);
-                } else if (id == R.id.nav_animation) {
-                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
-                    intent.putExtra("theme", "9");
-                    startActivity(intent);
-                } else if (id == R.id.nav_finance) {
-                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
-                    intent.putExtra("theme", "6");
-                    startActivity(intent);
-                } else if (id == R.id.nav_game) {
-                    intent = new Intent(NewsActivity.this, ThemeActivity.class);
-                    intent.putExtra("theme", "2");
-                    startActivity(intent);
-                }
-
-                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                drawer.closeDrawer(GravityCompat.START);
-                return true;
-            }
-        });
     }
 
     @Override
     protected void initBussiness() {
         EventBus.getDefault().register(presenter);
+        presenter.loadNews();
+    }
+
+    @Override
+    protected void initListener() {
         swipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
@@ -117,7 +70,48 @@ public class NewsActivity extends BaseActivity implements INewsView {
                     }
                 }
         );
-        presenter.loadNews();
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                Intent intent = new Intent(NewsActivity.this, ThemeActivity.class);
+                if (id == R.id.nav_toToday) {
+                    presenter.loadNews();
+                    BeforeOneDay.nowDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
+                    toolbar.setTitle("知道日报");
+                } else if (id == R.id.nav_movie) {
+                    intent.putExtra("theme", getString(R.string.movie));
+                    startActivity(intent);
+                } else if (id == R.id.nav_music) {
+                    intent.putExtra("theme", getString(R.string.music));
+                    startActivity(intent);
+                } else if (id == R.id.nav_sport) {
+                    intent.putExtra("theme", getString(R.string.sport));
+                    startActivity(intent);
+                } else if (id == R.id.nav_design) {
+                    intent.putExtra("theme", getString(R.string.design));
+                    startActivity(intent);
+                } else if (id == R.id.nav_animation) {
+                    intent.putExtra("theme", getString(R.string.animation));
+                    startActivity(intent);
+                } else if (id == R.id.nav_finance) {
+                    intent.putExtra("theme", getString(R.string.finance));
+                    startActivity(intent);
+                } else if (id == R.id.nav_game) {
+                    intent.putExtra("theme", getString(R.string.game));
+                    startActivity(intent);
+                }
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -126,7 +120,8 @@ public class NewsActivity extends BaseActivity implements INewsView {
         try {
             EventBus.getDefault().register(presenter);
         } catch (Exception e) {
-
+            Log.d("news", "首次进入");
+            //首次进入进入异常
         }
 
     }
@@ -184,8 +179,6 @@ public class NewsActivity extends BaseActivity implements INewsView {
                 lastVisibleItem = manager.findLastVisibleItemPosition();
             }
         });
-
-
     }
 
     @Override

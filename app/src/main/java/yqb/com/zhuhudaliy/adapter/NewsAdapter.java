@@ -20,6 +20,7 @@ import yqb.com.zhuhudaliy.R;
 import yqb.com.zhuhudaliy.activity.NewsConetentActivity;
 import yqb.com.zhuhudaliy.model.NewsModel;
 import yqb.com.zhuhudaliy.sqlite.NewsDao;
+import yqb.com.zhuhudaliy.util.ImageUrlRepair;
 
 /**
  * create by yangzikang 2017/7/31
@@ -28,79 +29,59 @@ import yqb.com.zhuhudaliy.sqlite.NewsDao;
 public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<NewsModel> newses;
-    Context mContext;
+    private Context mContext;
+    private final static int BUTTOMVIEW = 0;
+    private final static int CONTENTVIEW = 1;
 
     public NewsAdapter(List newses, Context context) {
         this.newses = newses;
         this.mContext = context;
     }
 
-    //判断当前item类型
     @Override
     public int getItemViewType(int position) {
-        int dataItemCount = getItemCount()-1;
+        int dataItemCount = getItemCount() - 1;
         if (position >= (dataItemCount)) {
-            //底部View
-            return 0;
+            return BUTTOMVIEW;
         } else {
-            //内容View
-            return 1;
+            return CONTENTVIEW;
         }
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_style2, parent, false);
-//        NewsAdapter.ViewHolder viewHolder = new NewsAdapter.ViewHolder(view);
-//        return viewHolder;
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
-        if (viewType == 0) {
-            return new footerHolder(mLayoutInflater.inflate(R.layout.footer_load, parent, false));
-        } else if (viewType == 1) {
-            return new ViewHolder(mLayoutInflater.inflate(R.layout.recycler_style2, parent, false));
+        if (viewType == BUTTOMVIEW) {
+            return new ButtomViewHolder(mLayoutInflater.inflate(R.layout.footer_load, parent, false));
+        } else if (viewType == CONTENTVIEW) {
+            return new NewsViewHolder(mLayoutInflater.inflate(R.layout.recycler_style2, parent, false));
         }
         return null;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof ViewHolder) {
-            ViewHolder viewHolder = (ViewHolder)holder;
+        if (holder instanceof NewsViewHolder) {
+            NewsViewHolder viewHolder = (NewsViewHolder) holder;
             NewsModel news = newses.get(position);
             viewHolder.title.setText(news.getTitle());
-            Glide.with(mContext).load(handleImageUrl(news.getImage())).placeholder(R.drawable.process).error(R.drawable.icon).into(viewHolder.image);
-        } else if (holder instanceof footerHolder) {
-            footerHolder footerHolder = (footerHolder) holder;
+            Glide.with(mContext).load(ImageUrlRepair.handleImageUrl(news.getImage())).placeholder(R.drawable.process).error(R.drawable.icon).into(viewHolder.image);
+        } else if (holder instanceof ButtomViewHolder) {
+            ButtomViewHolder footerHolder = (ButtomViewHolder) holder;
             footerHolder.footer.setText("加载中...");
-        }
-//        NewsModel news = newses.get(position);
-//        holder.title.setText(news.getTitle());
-//        Glide.with(mContext).load(handleImageUrl(news.getImage())).placeholder(R.drawable.process).error(R.drawable.icon).into(holder.image);
-    }
-
-    private String handleImageUrl(String imageUrl) {
-        if (imageUrl.length() > 2) {
-            imageUrl = imageUrl.substring(2);
-            String[] realImageUrl = imageUrl.split("\"");
-            imageUrl = realImageUrl[0];
-            imageUrl = imageUrl.replace("\\", "");
-            return imageUrl;
-        } else {
-            return imageUrl;
         }
     }
 
     @Override
     public int getItemCount() {
-        return newses.size() + 1;
+        return newses.size() + 1;//一个ButtomView
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class NewsViewHolder extends RecyclerView.ViewHolder {
         TextView title;
         ImageView image;
 
-        public ViewHolder(final View itemView) {
+        public NewsViewHolder(final View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
             image = (ImageView) itemView.findViewById(R.id.image);
@@ -133,7 +114,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                     int position = getPosition();
                                     NewsDao newsDao = new NewsDao(mContext);
                                     newsDao.addNews(newses.get(position));
-                                    Toast.makeText(mContext,"添加喜欢",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(mContext, "添加喜欢", Toast.LENGTH_LONG).show();
                                 }
                             });
                     normalDialog.setNegativeButton("取消",
@@ -150,15 +131,13 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    class footerHolder extends RecyclerView.ViewHolder {
+    class ButtomViewHolder extends RecyclerView.ViewHolder {
         TextView footer;
 
-        public footerHolder(View itemView) {
+        public ButtomViewHolder(View itemView) {
             super(itemView);
             footer = (TextView) itemView.findViewById(R.id.load_news);
-
         }
     }
-
 
 }

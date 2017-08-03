@@ -19,6 +19,7 @@ public class Api {
     public static Api getInstance() {
         return api;
     }
+
     public String getThemeUrl() {
         return themeUrl;
     }

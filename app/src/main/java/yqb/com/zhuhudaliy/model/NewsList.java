@@ -22,7 +22,6 @@ public class NewsList {
         List<NewsModel> news = new ArrayList<>();
         Network network = new Network(url);
         JSONObject jsonObject = network.doNetWork();
-
         try {
             JSONArray jsonArray = jsonObject.getJSONArray("stories");
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -53,7 +52,7 @@ public class NewsList {
         List<NewsModel> news = new ArrayList<>();
         Network network = new Network(url);
         JSONObject jsonObject = network.doNetWork();
-
+        //去处第一个jsonObject广告
         try {
             JSONArray jsonArray = jsonObject.getJSONArray("stories");
             for (int i = 1; i < jsonArray.length(); i++) {

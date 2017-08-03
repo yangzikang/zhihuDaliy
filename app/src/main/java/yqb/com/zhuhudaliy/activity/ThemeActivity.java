@@ -20,7 +20,7 @@ import yqb.com.zhuhudaliy.engine.Api;
 import yqb.com.zhuhudaliy.presenter.NewsPresenter;
 import yqb.com.zhuhudaliy.view.INewsView;
 
-public class ThemeActivity extends BaseActivity implements INewsView{
+public class ThemeActivity extends BaseActivity implements INewsView {
 
     RecyclerView recyclerView;
     NewsPresenter presenter = new NewsPresenter(this);
@@ -35,15 +35,16 @@ public class ThemeActivity extends BaseActivity implements INewsView{
     protected void initBussiness() {
         EventBus.getDefault().register(presenter);
         Intent intent = getIntent();
-
         String themeId = intent.getStringExtra("theme");
-        presenter.loadNewsFromTheme(Api.getInstance().getThemeUrl()+themeId);
+        presenter.loadNewsFromTheme(Api.getInstance().getThemeUrl() + themeId);
     }
+
     @Override
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(presenter);
     }
+
     @Override
     public void setList(List news) {
         LinearLayoutManager manager = new LinearLayoutManager(this);

@@ -14,10 +14,10 @@ import yqb.com.zhuhudaliy.model.NewsModel;
  */
 public class NewsDao {
 
-    private SqliteHelper helper = null;
+    private NewsSqliteHelper helper = null;
 
     public NewsDao(Context context) {
-        helper = new SqliteHelper(context);
+        helper = new NewsSqliteHelper(context);
     }
 
     public boolean addNews(NewsModel news) {
@@ -36,7 +36,6 @@ public class NewsDao {
         return true;
     }
 
-    //查询
     public List<NewsModel> getSavedNewsList(String sql) {
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
@@ -51,6 +50,8 @@ public class NewsDao {
                 mList.add(newsModel);
             }
         }
+        cursor.close();
+        db.close();
         return mList;
     }
 

@@ -2,4 +2,12 @@
     <string name="app_name">知乎日报</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="movie">3</string>
+    <string name="music">7</string>
+    <string name="sport">8</string>
+    <string name="design">4</string>
+    <string name="animation">9</string>
+    <string name="finance">6</string>
+    <string name="game">2</string>
 </resources>
