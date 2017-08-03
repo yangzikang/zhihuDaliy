@@ -22,8 +22,8 @@ public class ChooseDayActivity extends BaseActivity {
     @Override
     protected void initView() {
         setContentView(R.layout.activity_choose_day);
-        submit = (Button) findViewById(R.id.submit);
-        chooseDay = (DatePicker) findViewById(R.id.choose_day);
+        submit = (Button) findViewById(R.id.button_submit);
+        chooseDay = (DatePicker) findViewById(R.id.datepicker_choose_day);
     }
 
     @Override
@@ -35,7 +35,6 @@ public class ChooseDayActivity extends BaseActivity {
                 intent.putExtra("date", getDate());
                 setResult(RESULT_OK, intent);
                 finish();//此处一定要调用finish()方法
-
             }
         });
 

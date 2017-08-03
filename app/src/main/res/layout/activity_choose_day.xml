@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:id="@+id/choose_day" />
+        android:id="@+id/datepicker_choose_day" />
 
     <Button
         android:text="提交"
@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/submit" />
+        android:id="@+id/button_submit"
+        android:textSize="18sp" />
 
 </RelativeLayout>

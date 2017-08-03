@@ -25,7 +25,7 @@ public class SavedNewsActivity extends BaseActivity implements INewsView {
     @Override
     protected void initView() {
         setContentView(R.layout.activity_saved_news);
-        recyclerView = (RecyclerView) findViewById(R.id.saved_news_list);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_saved_news_list);
     }
 
     @Override

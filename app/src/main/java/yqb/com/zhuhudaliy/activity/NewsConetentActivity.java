@@ -14,7 +14,7 @@ public class NewsConetentActivity extends BaseActivity {
     @Override
     protected void initView() {
         setContentView(R.layout.activity_news_conetent);
-        webView = (WebView) findViewById(R.id.news_content_webview);
+        webView = (WebView) findViewById(R.id.webview_news_content);
     }
 
     @Override

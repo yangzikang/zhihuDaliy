@@ -14,13 +14,13 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/imageView_news_image"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:scaleType="fitXY" />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/textview_news_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="标题"

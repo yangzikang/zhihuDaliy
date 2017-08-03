@@ -28,7 +28,7 @@ public class ThemeActivity extends BaseActivity implements INewsView {
     @Override
     protected void initView() {
         setContentView(R.layout.activity_theme);
-        recyclerView = (RecyclerView) findViewById(R.id.news_theme);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_theme_news);
     }
 
     @Override

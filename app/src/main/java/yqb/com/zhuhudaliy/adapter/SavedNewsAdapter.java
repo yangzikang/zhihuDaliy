@@ -61,8 +61,8 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.View
 
         public ViewHolder(final View itemView) {
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.saved_title);
-            image = (ImageView) itemView.findViewById(R.id.saved_image);
+            title = (TextView) itemView.findViewById(R.id.textview_saved_title);
+            image = (ImageView) itemView.findViewById(R.id.imageview_saved_image);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

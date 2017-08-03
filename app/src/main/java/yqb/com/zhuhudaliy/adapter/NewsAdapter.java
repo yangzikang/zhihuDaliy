@@ -52,7 +52,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
         if (viewType == BUTTOMVIEW) {
-            return new ButtomViewHolder(mLayoutInflater.inflate(R.layout.footer_load, parent, false));
+            return new ButtomViewHolder(mLayoutInflater.inflate(R.layout.buttom_layout, parent, false));
         } else if (viewType == CONTENTVIEW) {
             return new NewsViewHolder(mLayoutInflater.inflate(R.layout.recycler_style2, parent, false));
         }
@@ -83,8 +83,8 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public NewsViewHolder(final View itemView) {
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.title);
-            image = (ImageView) itemView.findViewById(R.id.image);
+            title = (TextView) itemView.findViewById(R.id.textview_news_title);
+            image = (ImageView) itemView.findViewById(R.id.imageView_news_image);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -136,7 +136,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         public ButtomViewHolder(View itemView) {
             super(itemView);
-            footer = (TextView) itemView.findViewById(R.id.load_news);
+            footer = (TextView) itemView.findViewById(R.id.textview_loading);
         }
     }
 

@@ -44,7 +44,7 @@ public class NewsActivity extends BaseActivity implements INewsView {
     @Override
     protected void initView() {
         setContentView(R.layout.activity_news);
-        recyclerView = (RecyclerView) findViewById(R.id.news_list);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_news_list);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

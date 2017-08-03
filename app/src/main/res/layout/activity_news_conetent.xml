@@ -11,5 +11,5 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/news_content_webview" />
+        android:id="@+id/webview_news_content" />
 </RelativeLayout>
