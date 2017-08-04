@@ -3,6 +3,24 @@
 
     <item
         is-multidex="true"
+        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6d516adce11dd399aa016d1c6ebc8d1a2b53b140">
+        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_5dbd3da998d378df4743c3d6dd263d088a0372eb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.3.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.3.1_f4a1236d67133fcfdf06bdabd73571a712d871c7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.3.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -18,6 +36,15 @@
         revision="26.0.0"
         sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
         <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.3.1_b395cf876fa9e300b7c95d269dcbb7bd630fa653/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.3.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.3.1_2830e49be4917a26aba200119bafd38c999dcaba/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -75,60 +102,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="90fae9c84907e8085888762f676257fd25295d0a">
-        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_56ff4df286ba2a0e19ec6f003a2b0cb4fca0fa3a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.3.1_c3c7d22a859fb2070ec15417b7c599dc4b34dd29/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/yangzikang/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
-        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.11.0_0d3a64ea002447402dcc0d0d16b51a3cc9cf18bd/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="6d516adce11dd399aa016d1c6ebc8d1a2b53b140">
-        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_5dbd3da998d378df4743c3d6dd263d088a0372eb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.3.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.3.1_f4a1236d67133fcfdf06bdabd73571a712d871c7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.3.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.3.1_2830e49be4917a26aba200119bafd38c999dcaba/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.3.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -147,12 +120,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="1de9d936cbb83a801f321a10e3745518ed7e1e00">
+        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_56ff4df286ba2a0e19ec6f003a2b0cb4fca0fa3a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
         sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
         <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.3.1_b6aaee4238fafeb35b19267230058e32d67423ae/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.3.1_c3c7d22a859fb2070ec15417b7c599dc4b34dd29/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yangzikang/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="/Users/yangzikang/Downloads/@git/ZhuhuDaliy/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.11.0_0d3a64ea002447402dcc0d0d16b51a3cc9cf18bd/classes.dex" />
     </item>
     <item
         is-multidex="true"

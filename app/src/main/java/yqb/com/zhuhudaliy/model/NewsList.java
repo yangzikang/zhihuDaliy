@@ -22,21 +22,23 @@ public class NewsList {
         List<NewsModel> news = new ArrayList<>();
         Network network = new Network(url);
         JSONObject jsonObject = network.doNetWork();
-        try {
-            JSONArray jsonArray = jsonObject.getJSONArray("stories");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject newsJson = jsonArray.getJSONObject(i);
-                String image = newsJson.optString("images");
-                String id = newsJson.getString("id");
-                String title = newsJson.getString("title");
-                NewsModel model = new NewsModel();
-                model.setImage(image);
-                model.setTitle(title);
-                model.setId(id);
-                news.add(model);
+        if(jsonObject != null) {
+            try {
+                JSONArray jsonArray = jsonObject.getJSONArray("stories");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject newsJson = jsonArray.getJSONObject(i);
+                    String image = newsJson.optString("images");
+                    String id = newsJson.getString("id");
+                    String title = newsJson.getString("title");
+                    NewsModel model = new NewsModel();
+                    model.setImage(image);
+                    model.setTitle(title);
+                    model.setId(id);
+                    news.add(model);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
         return news;
     }
@@ -52,22 +54,24 @@ public class NewsList {
         List<NewsModel> news = new ArrayList<>();
         Network network = new Network(url);
         JSONObject jsonObject = network.doNetWork();
-        //去处第一个jsonObject广告
-        try {
-            JSONArray jsonArray = jsonObject.getJSONArray("stories");
-            for (int i = 1; i < jsonArray.length(); i++) {
-                JSONObject newsJson = jsonArray.getJSONObject(i);
-                String image = newsJson.optString("images");
-                String id = newsJson.getString("id");
-                String title = newsJson.getString("title");
-                NewsModel model = new NewsModel();
-                model.setImage(image);
-                model.setTitle(title);
-                model.setId(id);
-                news.add(model);
+        if(jsonObject != null) {
+            //去处第一个jsonObject广告
+            try {
+                JSONArray jsonArray = jsonObject.getJSONArray("stories");
+                for (int i = 1; i < jsonArray.length(); i++) {
+                    JSONObject newsJson = jsonArray.getJSONObject(i);
+                    String image = newsJson.optString("images");
+                    String id = newsJson.getString("id");
+                    String title = newsJson.getString("title");
+                    NewsModel model = new NewsModel();
+                    model.setImage(image);
+                    model.setTitle(title);
+                    model.setId(id);
+                    news.add(model);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
         return news;
     }

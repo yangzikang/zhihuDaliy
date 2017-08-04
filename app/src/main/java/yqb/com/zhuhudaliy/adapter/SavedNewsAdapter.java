@@ -17,6 +17,7 @@ import java.util.List;
 
 import yqb.com.zhuhudaliy.R;
 import yqb.com.zhuhudaliy.activity.NewsConetentActivity;
+import yqb.com.zhuhudaliy.imageLoader.ImageManager;
 import yqb.com.zhuhudaliy.model.NewsModel;
 import yqb.com.zhuhudaliy.sqlite.NewsDao;
 import yqb.com.zhuhudaliy.util.ImageUrlRepair;
@@ -47,7 +48,8 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.View
     public void onBindViewHolder(SavedNewsAdapter.ViewHolder holder, int position) {
         NewsModel news = newses.get(position);
         holder.title.setText(news.getTitle());
-        Glide.with(mContext).load(ImageUrlRepair.handleImageUrl(news.getImage())).placeholder(R.drawable.process).error(R.drawable.icon).into(holder.image);
+        //Glide.with(mContext).load(ImageUrlRepair.handleImageUrl(news.getImage())).placeholder(R.drawable.process).error(R.drawable.icon).into(holder.image);
+        new ImageManager().setImage(holder.image,ImageUrlRepair.handleImageUrl(news.getImage()));
     }
 
     @Override
