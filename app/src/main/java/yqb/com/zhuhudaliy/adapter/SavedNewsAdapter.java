@@ -11,13 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.List;
 
 import yqb.com.zhuhudaliy.R;
 import yqb.com.zhuhudaliy.activity.NewsConetentActivity;
-import yqb.com.zhuhudaliy.imageLoader.ImageManager;
+import yqb.com.zhuhudaliy.util.imageLoader.ImageManager;
 import yqb.com.zhuhudaliy.model.NewsModel;
 import yqb.com.zhuhudaliy.sqlite.NewsDao;
 import yqb.com.zhuhudaliy.util.ImageUrlRepair;

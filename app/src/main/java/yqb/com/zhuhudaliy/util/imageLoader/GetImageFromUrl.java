@@ -1,4 +1,4 @@
-package yqb.com.zhuhudaliy.imageLoader;
+package yqb.com.zhuhudaliy.util.imageLoader;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
