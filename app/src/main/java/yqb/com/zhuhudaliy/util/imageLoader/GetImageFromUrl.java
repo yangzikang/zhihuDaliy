@@ -10,6 +10,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import yqb.com.zhuhudaliy.util.imageLoader.imageCache.DiskCache;
+import yqb.com.zhuhudaliy.util.imageLoader.imageCache.MemoryCache;
+import yqb.com.zhuhudaliy.util.imageLoader.imageCompress.CompressImage;
+
 /**
  * Created by yangzikang on 2017/8/3.
  */

@@ -7,6 +7,9 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.ImageView;
 
+import yqb.com.zhuhudaliy.util.imageLoader.imageCache.DiskCache;
+import yqb.com.zhuhudaliy.util.imageLoader.imageCache.MemoryCache;
+
 /**
  * Created by yangzikang on 2017/8/4.
  */

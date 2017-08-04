@@ -1,4 +1,4 @@
-package yqb.com.zhuhudaliy.util.imageLoader;
+package yqb.com.zhuhudaliy.util.imageLoader.imageCompress;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;

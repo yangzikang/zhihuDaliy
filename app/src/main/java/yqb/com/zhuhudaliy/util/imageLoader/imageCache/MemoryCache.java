@@ -1,4 +1,4 @@
-package yqb.com.zhuhudaliy.util.imageLoader;
+package yqb.com.zhuhudaliy.util.imageLoader.imageCache;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;
