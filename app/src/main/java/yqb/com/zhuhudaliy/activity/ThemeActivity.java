@@ -49,6 +49,6 @@ public class ThemeActivity extends BaseActivity implements INewsView {
     public void setList(List news) {
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
-        recyclerView.setAdapter(new NewsAdapter(news, this,0));
+        recyclerView.setAdapter(new NewsAdapter(news, this, 0));
     }
 }

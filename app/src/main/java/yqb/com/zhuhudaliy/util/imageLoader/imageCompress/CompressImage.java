@@ -9,7 +9,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 /**
- * Created by yangzikang on 2017/6/4.
+ * Created by yangzikang on 2017/8/03.
  */
 
 public class CompressImage {

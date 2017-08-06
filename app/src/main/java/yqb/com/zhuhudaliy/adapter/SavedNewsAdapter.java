@@ -47,7 +47,7 @@ public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.View
         NewsModel news = newses.get(position);
         holder.title.setText(news.getTitle());
         //Glide.with(mContext).load(ImageUrlRepair.handleImageUrl(news.getImage())).placeholder(R.drawable.process).error(R.drawable.icon).into(holder.image);
-        new ImageManager().setImage(holder.image,ImageUrlRepair.handleImageUrl(news.getImage()));
+        new ImageManager().setImage(holder.image, ImageUrlRepair.handleImageUrl(news.getImage()));
     }
 
     @Override

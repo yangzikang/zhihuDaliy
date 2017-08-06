@@ -21,19 +21,18 @@ public class NewsConetentActivity extends BaseActivity {
     protected void initView() {
         setContentView(R.layout.activity_news_conetent);
         webView = (WebView) findViewById(R.id.webview_news_content);
-        progressBar = (ProgressBar)findViewById(R.id.progressBar_load_webview);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar_load_webview);
     }
 
     @Override
     protected void initBussiness() {
         Intent intent = getIntent();
-        webView.setWebChromeClient(new WebChromeClient(){
+        webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-                if(newProgress==100){
+                if (newProgress == 100) {
                     progressBar.setVisibility(View.GONE);
-                }
-                else{
+                } else {
                     progressBar.setVisibility(View.VISIBLE);
                     progressBar.setProgress(newProgress);
                 }

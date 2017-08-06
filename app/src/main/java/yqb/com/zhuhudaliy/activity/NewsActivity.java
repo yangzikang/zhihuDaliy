@@ -136,7 +136,7 @@ public class NewsActivity extends BaseActivity implements INewsView {
     @Override
     public void setList(List news) {
         final LinearLayoutManager manager = new LinearLayoutManager(this);
-        final NewsAdapter adapter = new NewsAdapter(news, this,BUTTOMCOUNT);
+        final NewsAdapter adapter = new NewsAdapter(news, this, BUTTOMCOUNT);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {

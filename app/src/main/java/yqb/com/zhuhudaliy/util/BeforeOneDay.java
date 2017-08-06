@@ -13,7 +13,6 @@ public class BeforeOneDay {
     public static String nowDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
 
     public static String getSpecifiedDayBefore(String specifiedDay) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         Calendar c = Calendar.getInstance();
         Date date = null;
         try {

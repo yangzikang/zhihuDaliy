@@ -21,38 +21,40 @@ import java.io.IOException;
 
 public class DiskCache {
     private static DiskCache diskCache = new DiskCache();
-    private DiskCache(){}
 
-    public static DiskCache getInstance(){
+    private DiskCache() {
+    }
+
+    public static DiskCache getInstance() {
         return diskCache;
     }
 
-    public void put(String key,Bitmap bitmap) {
+    public void put(String key, Bitmap bitmap) {
         try {
-            saveToSDCard(String.valueOf(key.hashCode()),convertIconToString(bitmap));
+            saveToSDCard(String.valueOf(key.hashCode()), convertIconToString(bitmap));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    private void saveToSDCard(String filename, String filecontent)throws Exception{
-        File file = new File(Environment.getExternalStorageDirectory(),filename);
+    private void saveToSDCard(String filename, String filecontent) throws Exception {
+        File file = new File(Environment.getExternalStorageDirectory(), filename);
         FileOutputStream outStream = new FileOutputStream(file);
         outStream.write(filecontent.getBytes());
         outStream.close();
     }
 
-    public Bitmap get(String key) throws Exception{
+    public Bitmap get(String key) throws Exception {
         String iconString = "";
-        File file = new File(Environment.getExternalStorageDirectory(),String.valueOf(key.hashCode()));
+        File file = new File(Environment.getExternalStorageDirectory(), String.valueOf(key.hashCode()));
         FileInputStream inputStream = new FileInputStream(file);
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(file));
             String tempString;
             while ((tempString = reader.readLine()) != null) {
-                iconString+=tempString;
+                iconString += tempString;
             }
             reader.close();
         } catch (IOException e) {
@@ -65,7 +67,7 @@ public class DiskCache {
                 }
             }
         }
-        Log.d("cache","本地缓存取");
+        Log.d("cache", "本地缓存取");
         return convertStringToIcon(iconString);
     }
 
@@ -75,8 +77,7 @@ public class DiskCache {
      * @param bitmap
      * @return
      */
-    public String convertIconToString(Bitmap bitmap)
-    {
+    public String convertIconToString(Bitmap bitmap) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();// outputstream
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] appicon = baos.toByteArray();// 转为byte数组
@@ -89,33 +90,29 @@ public class DiskCache {
      *
      * @param st
      */
-    public Bitmap convertStringToIcon(String st)
-    {
+    public Bitmap convertStringToIcon(String st) {
         // OutputStream out;
         Bitmap bitmap = null;
-        try
-        {
+        try {
             // out = new FileOutputStream("/sdcard/aa.jpg");
             byte[] bitmapArray;
             bitmapArray = Base64.decode(st, Base64.DEFAULT);
             bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0,
-                            bitmapArray.length);
+                    bitmapArray.length);
             // bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
             return bitmap;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             return null;
         }
     }
 
-    public boolean isExsit(String key){
+    public boolean isExsit(String key) {
         try {
             get(key);
-            return  true;
+            return true;
         } catch (FileNotFoundException e) {
             return false;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }

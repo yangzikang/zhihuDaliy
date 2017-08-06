@@ -18,28 +18,28 @@ public class ImageManager {
 
     private ImageView imageView;
     private Bitmap bitmap;
-    Handler handler = new Handler(Looper.getMainLooper()){
+    Handler handler = new Handler(Looper.getMainLooper()) {
         @Override
-        public void handleMessage(Message msg){
-            if(msg.what==0){
+        public void handleMessage(Message msg) {
+            if (msg.what == 0) {
                 imageView.setImageBitmap(bitmap);
             }
         }
     };
 
-    public void setImage(ImageView imageView,final String url){
+    public void setImage(ImageView imageView, final String url) {
         this.imageView = imageView;
-        try{
-            if(MemoryCache.getInstance().isExsit(url)){
+        try {
+            if (MemoryCache.getInstance().isExsit(url)) {
                 bitmap = MemoryCache.getInstance().get(url);
                 handler.sendEmptyMessage(0);
-                Log.d("Mycache","缓存执行");
-            } else if(DiskCache.getInstance().isExsit(url)){
+                Log.d("Mycache", "缓存执行");
+            } else if (DiskCache.getInstance().isExsit(url)) {
                 bitmap = DiskCache.getInstance().get(url);
                 handler.sendEmptyMessage(0);
-                Log.d("Mycache","本地缓存执行");
-                MemoryCache.getInstance().put(url,bitmap);
-            }else{
+                Log.d("Mycache", "本地缓存执行");
+                MemoryCache.getInstance().put(url, bitmap);
+            } else {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -49,7 +49,7 @@ public class ImageManager {
                     }
                 }).start();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
